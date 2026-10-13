@@ -11,7 +11,9 @@
 		if (window.location.protocol.indexOf('http') === 0) {
 			var p = window.location.pathname.replace(/\/$/, "");
 			if (!p.endsWith('/vibration')) {
-				window.location.replace('/vibration');
+				var search = window.location.search || '';
+				var hash = window.location.hash || '';
+				window.location.replace('/vibration' + search + hash);
 			}
 		}
 	})();
@@ -70,7 +72,129 @@
 					}
 				}
 			</style>
-				<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></head>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><style id="ml-custom-responsive-style">
+  /* Prevencao de rolagem horizontal indesejada em telas moveis */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* Layout 100% Responsivo para Mobile (< 768px) */
+  @media (max-width: 767px) {
+    body {
+      background-color: #ffffff;
+      width: 100%;
+      max-width: 100%;
+    }
+    .elementor-22 {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden;
+    }
+    .e-con-inner {
+      max-width: 100% !important;
+      box-sizing: border-box;
+    }
+  }
+
+  /* Exibicao em Telas Maiores (>= 768px): Moldura Mobile Centralizada Premium */
+  @media (min-width: 768px) {
+    html {
+      background-color: #ededed;
+    }
+    body {
+      background-color: #ededed !important;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+    .elementor-22 {
+      max-width: 480px !important;
+      width: 100% !important;
+      margin: 15px auto !important;
+      background-color: #ffffff !important;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    /* Restaura a exibicao de todos os blocos na moldura mobile em desktop/tablet */
+    .elementor .elementor-element.elementor-hidden-desktop,
+    .elementor .elementor-element.elementor-hidden-tablet {
+      display: flex !important;
+    }
+  }
+
+  /* Touch scrolling fluido no carrossel de fotos */
+  .ml-product-carousel, .ml-carousel-track {
+    touch-action: pan-y !important;
+  }
+  
+  /* Otimizacao de botoes CTA */
+  .checkout-btn {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    transition: transform 0.1s ease, filter 0.15s ease;
+  }
+  .checkout-btn:active {
+    transform: scale(0.98);
+    filter: brightness(0.92);
+  }
+  
+  /* Estilizacao consolidada dos botoes de utilidade das avaliacoes */
+  .botoes-utilidade {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .botao-curtir, .botao-descurtir {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #737373;
+    border-radius: 999px;
+    font-size: 13px;
+    color: #737373;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: transparent;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .botao-curtir {
+    padding: 5px 12px;
+  }
+  .botao-descurtir {
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+  }
+  .botao-curtir svg, .botao-descurtir svg {
+    width: 15px;
+    height: 15px;
+    fill: #737373;
+    transition: fill 0.2s;
+  }
+  .botao-curtir svg {
+    margin-left: 6px;
+  }
+  .botao-curtir span {
+    margin-left: 4px;
+    font-weight: 600;
+  }
+  .botao-curtir.ativo, .botao-descurtir.ativo {
+    border-color: #3483fa;
+    color: #3483fa;
+  }
+  .botao-curtir.ativo svg, .botao-descurtir.ativo svg {
+    fill: #3483fa;
+  }
+</style>
+</head>
 <body class="wp-singular page-template page-template-elementor_canvas page page-id-22 wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-canvas elementor-kit-6 elementor-page elementor-page-22">
 			<div data-elementor-type="wp-page" data-elementor-id="22" class="elementor elementor-22">
 				<div class="elementor-element elementor-element-8ba0ddc elementor-hidden-desktop elementor-hidden-tablet e-flex e-con-boxed e-con e-parent" data-id="8ba0ddc" data-element_type="container" data-settings="{" background_background":"classic"}"="">
@@ -79,7 +203,7 @@
 		<div class="elementor-element elementor-element-5910b78 e-con-full e-flex e-con e-child" data-id="5910b78" data-element_type="container" style="--width: 80%; width: 80%;">
 				<div class="elementor-element elementor-element-7fc4d28 elementor-search-form--skin-minimal elementor-widget-mobile__width-inherit elementor-widget elementor-widget-search-form" data-id="7fc4d28" data-element_type="widget" data-settings="{" skin":"minimal"}"="" data-widget_type="search-form.default">
 				<div class="elementor-widget-container">
-							<form class="elementor-search-form" role="search" action="https://page.kelvesmoura.com" method="get">
+							<form class="elementor-search-form" role="search" onsubmit="event.preventDefault(); return false;">
 									<div class="elementor-search-form__container" style="width: 100%;">
 									<div class="elementor-search-form__icon">
 						<div class="e-font-icon-svg-container"><svg aria-hidden="true" class="e-font-icon-svg e-fas-search" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></div>						<span class="elementor-screen-only">Search</span>
@@ -155,7 +279,7 @@
 		<div class="elementor-element elementor-element-1f67d59 elementor-hidden-desktop elementor-hidden-tablet e-flex e-con-boxed e-con e-parent" data-id="1f67d59" data-element_type="container">
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-1a3c482 elementor-widget elementor-widget-text-editor" data-id="1a3c482" data-element_type="widget" data-widget_type="text-editor.default">
-									<p>Body Splash Masculino Vibration Primacial 200ml Perfume Desodorante Col&#244;nia Corporal</p>								</div>
+									<p>Body Splash Masculino Vibration Primacial 200ml Perfume Desodorante Colônia Corporal</p>								</div>
 				<div class="elementor-element elementor-element-16aa39d elementor-widget elementor-widget-text-editor" data-id="16aa39d" data-element_type="widget" data-widget_type="text-editor.default">
 									<p>MAIS VENDIDO</p>								</div>
 				<!-- BANNER CARROSSEL PRIMACIAL - 5 IMAGENS -->
@@ -339,6 +463,7 @@
   let startX = 0;
   let currentX = 0;
   let isSwiping = false;
+  let hasMoved = false;
 
   function updateCarousel(idx) {
     if (idx < 0) idx = totalSlides - 1;
@@ -378,18 +503,55 @@
 
   if (carousel) {
     carousel.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-      isSwiping = true;
+      if (e.touches.length > 0) {
+        startX = e.touches[0].clientX;
+        currentX = startX;
+        isSwiping = true;
+        hasMoved = false;
+      }
     }, { passive: true });
 
     carousel.addEventListener('touchmove', (e) => {
-      if (!isSwiping) return;
+      if (!isSwiping || e.touches.length === 0) return;
       currentX = e.touches[0].clientX;
+      if (Math.abs(currentX - startX) > 8) {
+        hasMoved = true;
+      }
     }, { passive: true });
 
     carousel.addEventListener('touchend', () => {
       if (!isSwiping) return;
       isSwiping = false;
+      if (!hasMoved) return;
+      const diffX = startX - currentX;
+      if (Math.abs(diffX) > 40) {
+        if (diffX > 0) {
+          updateCarousel(currentIndex + 1);
+        } else {
+          updateCarousel(currentIndex - 1);
+        }
+      }
+    });
+
+    // Support mouse drag
+    let isMouseDown = false;
+    carousel.addEventListener('mousedown', (e) => {
+      isMouseDown = true;
+      startX = e.clientX;
+      currentX = startX;
+      hasMoved = false;
+    });
+    carousel.addEventListener('mousemove', (e) => {
+      if (!isMouseDown) return;
+      currentX = e.clientX;
+      if (Math.abs(currentX - startX) > 8) {
+        hasMoved = true;
+      }
+    });
+    window.addEventListener('mouseup', () => {
+      if (!isMouseDown) return;
+      isMouseDown = false;
+      if (!hasMoved) return;
       const diffX = startX - currentX;
       if (Math.abs(diffX) > 40) {
         if (diffX > 0) {
@@ -417,45 +579,56 @@
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-ccb3e61 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-html" data-id="ccb3e61" data-element_type="widget" data-widget_type="html.default">
 	<style>
-        :root {                                  
-            --delivery-text-color: #00000;                            
-            --loading-text-color: #000;                     
-        }                                
-
-        .delivery-estimate-container {
-            color: var(--delivery-text-color);
-        }                                
-
-        .loading-text {
-            color: var(--loading-text-color) !important;
+        .shipping-estimate {
+            position: relative;
+            margin-left: 0;
+            line-height: 1.35;
+        }
+        .estimate-loading {
+            text-align: left !important;
+            padding: 0;
+            font-size: 15px !important;
+            margin: 0;
+            color: #737373 !important;
+            display: block;
+        }
+        .delivery-estimate {
+            margin: 0;
+            text-align: left !important;
+            padding: 0;
+            font-size: 15px !important;
+            color: #00a650;
+            line-height: 1.35;
+        }
+        .delivery-estimate strong {
+            font-weight: 600;
+            color: #00a650;
         }
     </style>
 
-
-    <div class="shipping-estimate" style="position: relative; margin-left: 0px;">
-        <p class="estimate-loading loading-text" style="text-align: left !important; padding: 0 0 0 0px; font-size: 16px !important; margin: 0px 0 0px 0; display: block;">
-            Calculando prazo de entrega...
-        </p>
-        <p class="delivery-estimate delivery-estimate-container" style="margin: 0x; text-align: left !important; padding: 0 0 0 0px; font-size: 16px !important; margin: 0; font-weight: 400;"></p>
+    <div class="shipping-estimate">
+        <p class="estimate-loading">Calculando prazo de entrega...</p>
+        <p class="delivery-estimate"></p>
     </div>
 
     <script>
     (function() {
-        const today = new Date();
-        const deliveryDate = new Date(today);
-        deliveryDate.setDate(today.getDate() + 2);
-        const day = String(deliveryDate.getDate()).padStart(2, '0');
-        const months = ["janeiro", "fevereiro", "marÃ§o", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
-        const days = ["domingo", "segunda-feira", "terÃ§a-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sÃ¡bado"];
-        const deliveryText = 'ChegarÃ¡ ' + days[deliveryDate.getDay()] + ' ' + day + ' de ' + months[deliveryDate.getMonth()];
-        const el = document.querySelector('.delivery-estimate');
-        if (el) el.innerHTML = deliveryText;
-        const loadEl = document.querySelector('.estimate-loading');
-        if (loadEl) loadEl.style.display = 'none';
+        try {
+            var today = new Date();
+            var deliveryDate = new Date(today);
+            deliveryDate.setDate(today.getDate() + 2);
+            var day = String(deliveryDate.getDate()).padStart(2, '0');
+            var months = ["janeiro", "fevereiro", "mar\u00E7o", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+            var days = ["domingo", "segunda-feira", "ter\u00E7a-feira", "quarta-feira", "quinta-feira", "sexta-feira", "s\u00E1bado"];
+            var deliveryText = '<strong>Chegar\u00E1 gr\u00E1tis</strong> ' + days[deliveryDate.getDay()] + ', ' + day + ' de ' + months[deliveryDate.getMonth()];
+            var el = document.querySelector('.delivery-estimate');
+            if (el) el.innerHTML = deliveryText;
+            var loadEl = document.querySelector('.estimate-loading');
+            if (loadEl) loadEl.style.display = 'none';
+        } catch(e) {}
     })();
-</script>
-
-				</div>
+    </script>
+</div>
 				<div class="elementor-element elementor-element-e8573de elementor-widget-mobile__width-auto elementor-widget elementor-widget-text-editor" data-id="e8573de" data-element_type="widget" data-widget_type="text-editor.default">
 									<p>Saiba os prazos de entrega e as formas de envio.</p>								</div>
 					</div>
@@ -479,7 +652,7 @@
 				<div class="elementor-element elementor-element-01cb291 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="01cb291" data-element_type="widget" data-widget_type="text-editor.default">
 									<p>Estoque disponível</p>								</div>
 				<div class="elementor-element elementor-element-b1cfa68 elementor-widget-mobile__width-auto elementor-widget elementor-widget-text-editor" data-id="b1cfa68" data-element_type="widget" data-widget_type="text-editor.default">
-									<p>Armazenado e enviado com envio r&#225;pido Full</p>								</div>
+									<p>Armazenado e enviado com envio rápido Full</p>								</div>
 				<div class="elementor-element elementor-element-f710053 elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="f710053" data-element_type="widget" data-widget_type="image.default">
 															<img decoding="async" width="239" height="77" src="images/Full.webp" class="attachment-large size-large wp-image-47" alt="">															</div>
 				</div>
@@ -747,7 +920,7 @@
 				</div>
 		<div class="elementor-element elementor-element-ace0011 e-con-full e-flex e-con e-child" data-id="ace0011" data-element_type="container">
 				<div class="elementor-element elementor-element-bd08108 elementor-position-top elementor-widget elementor-widget-image-box" data-id="bd08108" data-element_type="widget" data-widget_type="image-box.default">
-					<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img loading="lazy" decoding="async" width="128" height="106" src="images/Ballon.png" class="attachment-full size-full wp-image-257" alt=""></figure><div class="elementor-image-box-content"><p class="elementor-image-box-description">Presta Bom atendimento</p></div></div>				</div>
+					<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img loading="lazy" decoding="async" width="128" height="106" src="images/Ballon.png" class="attachment-full size-full wp-image-257" alt=""></figure><div class="elementor-image-box-content"><p class="elementor-image-box-description">Presta bom atendimento</p></div></div>				</div>
 				</div>
 		<div class="elementor-element elementor-element-cd8bf4a e-con-full e-flex e-con e-child" data-id="cd8bf4a" data-element_type="container">
 				<div class="elementor-element elementor-element-ec3d9a0 elementor-position-top elementor-widget elementor-widget-image-box" data-id="ec3d9a0" data-element_type="widget" data-widget_type="image-box.default">
@@ -925,67 +1098,7 @@
 				<div class="elementor-element elementor-element-6a15a1d elementor-widget elementor-widget-text-editor" data-id="6a15a1d" data-element_type="widget" data-widget_type="text-editor.default">
 									<p>Fragrância simplesmente fantástica! Abre super fresca com as notas de bergamota e evolui para um fundo âmbar muito sofisticado e marcante. Uso diariamente no trabalho e todo mundo elogia. Excelente custo-benefício!</p>								</div>
 				<div class="elementor-element elementor-element-4ed8c85 elementor-widget elementor-widget-html" data-id="4ed8c85" data-element_type="widget" data-widget_type="html.default">
-					<style>
-  .botoes-utilidade {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: sans-serif;
-  }
-
-  .botao-curtir, .botao-descurtir {
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid #737373;
-    border-radius: 999px;
-    font-size: 14px;
-    color: #737373;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    background: transparent;
-    user-select: none;
-  }
-
-  .botao-curtir {
-    padding: 4px 10px;
-  }
-
-  .botao-descurtir {
-    width: 34px;
-    height: 34px;
-    justify-content: center;
-  }
-
-  .botao-curtir svg,
-  .botao-descurtir svg {
-    width: 16px;
-    height: 16px;
-    fill: #737373;
-    transition: fill 0.2s;
-  }
-
-  .botao-curtir svg {
-    margin-left: 6px;
-  }
-
-  .botao-curtir span {
-    margin-left: 4px;
-    font-weight: 600;
-  }
-
-  .botao-curtir.ativo,
-  .botao-descurtir.ativo {
-    border-color: #3b82f6;
-    color: #3b82f6;
-  }
-
-  .botao-curtir.ativo svg,
-  .botao-descurtir.ativo svg {
-    fill: #3b82f6;
-  }
-</style>
-
-<div class="botoes-utilidade" id="botoes-utilidade-1">
+					<div class="botoes-utilidade" id="botoes-utilidade-1">
   <!-- Botão Curtir -->
   <div class="botao-curtir" id="botaoCurtir-1" onclick="toggleCurtir_1()">
     É útil
@@ -1097,67 +1210,7 @@
 				<div class="elementor-element elementor-element-4c298a0 elementor-widget elementor-widget-text-editor" data-id="4c298a0" data-element_type="widget" data-widget_type="text-editor.default">
 									<p>O frasco de 200ml rende muito. O spray espalha super bem com uma névoa fina e a sensação de frescor logo nas primeiras borrifadas é surreal. Vale cada centavo!</p>								</div>
 				<div class="elementor-element elementor-element-14607f0 elementor-widget elementor-widget-html" data-id="14607f0" data-element_type="widget" data-widget_type="html.default">
-					<style>
-  .botoes-utilidade {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: sans-serif;
-  }
-
-  .botao-curtir, .botao-descurtir {
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid #737373;
-    border-radius: 999px;
-    font-size: 14px;
-    color: #737373;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    background: transparent;
-    user-select: none;
-  }
-
-  .botao-curtir {
-    padding: 4px 10px;
-  }
-
-  .botao-descurtir {
-    width: 34px;
-    height: 34px;
-    justify-content: center;
-  }
-
-  .botao-curtir svg,
-  .botao-descurtir svg {
-    width: 16px;
-    height: 16px;
-    fill: #737373;
-    transition: fill 0.2s;
-  }
-
-  .botao-curtir svg {
-    margin-left: 6px;
-  }
-
-  .botao-curtir span {
-    margin-left: 4px;
-    font-weight: 600;
-  }
-
-  .botao-curtir.ativo,
-  .botao-descurtir.ativo {
-    border-color: #3b82f6;
-    color: #3b82f6;
-  }
-
-  .botao-curtir.ativo svg,
-  .botao-descurtir.ativo svg {
-    fill: #3b82f6;
-  }
-</style>
-
-<div class="botoes-utilidade" id="botoes-utilidade-2">
+					<div class="botoes-utilidade" id="botoes-utilidade-2">
   <!-- Botão Curtir -->
   <div class="botao-curtir" id="botaoCurtir-2" onclick="toggleCurtir_2()">
     É útil
@@ -1267,71 +1320,11 @@
 				<div class="elementor-element elementor-element-509c344 elementor-widget elementor-widget-image" data-id="509c344" data-element_type="widget" data-widget_type="image.default">
 															<img decoding="async" src="images/vibration-banner-2.jpg" title="004" alt="004" loading="lazy">															</div>
 				<div class="elementor-element elementor-element-1e309a5 elementor-widget elementor-widget-image" data-id="1e309a5" data-element_type="widget" data-widget_type="image.default">
-															<img decoding="async" src="images/vibration-banner-2.jpg" title="004" alt="004" loading="lazy">															</div>
+															<img decoding="async" src="images/vibration-banner-4.jpg" title="004" alt="004" loading="lazy">															</div>
 				<div class="elementor-element elementor-element-143b117 elementor-widget elementor-widget-text-editor" data-id="143b117" data-element_type="widget" data-widget_type="text-editor.default">
 									<p>Comprei para presentear meu namorado e ele amou! O cheiro é marcante sem ser enjoativo, bem sofisticado como diz o anúncio. Fixa muito bem para um splash. Recomendo de olhos fechados!</p>								</div>
 				<div class="elementor-element elementor-element-ffd6001 elementor-widget elementor-widget-html" data-id="ffd6001" data-element_type="widget" data-widget_type="html.default">
-					<style>
-  .botoes-utilidade {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: sans-serif;
-  }
-
-  .botao-curtir, .botao-descurtir {
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid #737373;
-    border-radius: 999px;
-    font-size: 14px;
-    color: #737373;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    background: transparent;
-    user-select: none;
-  }
-
-  .botao-curtir {
-    padding: 4px 10px;
-  }
-
-  .botao-descurtir {
-    width: 34px;
-    height: 34px;
-    justify-content: center;
-  }
-
-  .botao-curtir svg,
-  .botao-descurtir svg {
-    width: 16px;
-    height: 16px;
-    fill: #737373;
-    transition: fill 0.2s;
-  }
-
-  .botao-curtir svg {
-    margin-left: 6px;
-  }
-
-  .botao-curtir span {
-    margin-left: 4px;
-    font-weight: 600;
-  }
-
-  .botao-curtir.ativo,
-  .botao-descurtir.ativo {
-    border-color: #3b82f6;
-    color: #3b82f6;
-  }
-
-  .botao-curtir.ativo svg,
-  .botao-descurtir.ativo svg {
-    fill: #3b82f6;
-  }
-</style>
-
-<div class="botoes-utilidade" id="botoes-utilidade-3">
+					<div class="botoes-utilidade" id="botoes-utilidade-3">
   <!-- Botão Curtir -->
   <div class="botao-curtir" id="botaoCurtir-3" onclick="toggleCurtir_3()">
     É útil
@@ -1445,67 +1438,7 @@
 				<div class="elementor-element elementor-element-494560e elementor-widget elementor-widget-text-editor" data-id="494560e" data-element_type="widget" data-widget_type="text-editor.default">
 									<p>Entrega muito rápida e produto original 100% lacrado. Uso sempre depois do banho e antes de sair, passa aquela sensação de homem limpo e perfumado o dia todo.</p>								</div>
 				<div class="elementor-element elementor-element-a7f31bd elementor-widget elementor-widget-html" data-id="a7f31bd" data-element_type="widget" data-widget_type="html.default">
-					<style>
-  .botoes-utilidade {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: sans-serif;
-  }
-
-  .botao-curtir, .botao-descurtir {
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid #737373;
-    border-radius: 999px;
-    font-size: 14px;
-    color: #737373;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    background: transparent;
-    user-select: none;
-  }
-
-  .botao-curtir {
-    padding: 4px 10px;
-  }
-
-  .botao-descurtir {
-    width: 34px;
-    height: 34px;
-    justify-content: center;
-  }
-
-  .botao-curtir svg,
-  .botao-descurtir svg {
-    width: 16px;
-    height: 16px;
-    fill: #737373;
-    transition: fill 0.2s;
-  }
-
-  .botao-curtir svg {
-    margin-left: 6px;
-  }
-
-  .botao-curtir span {
-    margin-left: 4px;
-    font-weight: 600;
-  }
-
-  .botao-curtir.ativo,
-  .botao-descurtir.ativo {
-    border-color: #3b82f6;
-    color: #3b82f6;
-  }
-
-  .botao-curtir.ativo svg,
-  .botao-descurtir.ativo svg {
-    fill: #3b82f6;
-  }
-</style>
-
-<div class="botoes-utilidade" id="botoes-utilidade-4">
+					<div class="botoes-utilidade" id="botoes-utilidade-4">
   <!-- Botão Curtir -->
   <div class="botao-curtir" id="botaoCurtir-4" onclick="toggleCurtir_4()">
     É útil
@@ -1615,67 +1548,7 @@
 				<div class="elementor-element elementor-element-c0ff7b0 elementor-widget elementor-widget-text-editor" data-id="c0ff7b0" data-element_type="widget" data-widget_type="text-editor.default">
 									<p>Perfume de muito bom gosto! Notas cítricas refinadas com um fundo amadeirado de patchouli que chama atenção com classe. Já virou meu body splash favorito da coleção.</p>								</div>
 				<div class="elementor-element elementor-element-d5a0de4 elementor-widget elementor-widget-html" data-id="d5a0de4" data-element_type="widget" data-widget_type="html.default">
-					<style>
-  .botoes-utilidade {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: sans-serif;
-  }
-
-  .botao-curtir, .botao-descurtir {
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid #737373;
-    border-radius: 999px;
-    font-size: 14px;
-    color: #737373;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    background: transparent;
-    user-select: none;
-  }
-
-  .botao-curtir {
-    padding: 4px 10px;
-  }
-
-  .botao-descurtir {
-    width: 34px;
-    height: 34px;
-    justify-content: center;
-  }
-
-  .botao-curtir svg,
-  .botao-descurtir svg {
-    width: 16px;
-    height: 16px;
-    fill: #737373;
-    transition: fill 0.2s;
-  }
-
-  .botao-curtir svg {
-    margin-left: 6px;
-  }
-
-  .botao-curtir span {
-    margin-left: 4px;
-    font-weight: 600;
-  }
-
-  .botao-curtir.ativo,
-  .botao-descurtir.ativo {
-    border-color: #3b82f6;
-    color: #3b82f6;
-  }
-
-  .botao-curtir.ativo svg,
-  .botao-descurtir.ativo svg {
-    fill: #3b82f6;
-  }
-</style>
-
-<div class="botoes-utilidade" id="botoes-utilidade-5">
+					<div class="botoes-utilidade" id="botoes-utilidade-5">
   <!-- Botão Curtir -->
   <div class="botao-curtir" id="botaoCurtir-5" onclick="toggleCurtir_5()">
     É útil
@@ -1743,13 +1616,13 @@
 		<div class="elementor-element elementor-element-e90e846 elementor-hidden-desktop elementor-hidden-tablet e-flex e-con-boxed e-con e-parent" data-id="e90e846" data-element_type="container" data-settings="{" background_background":"classic"}"="">
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-5598b4a elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="5598b4a" data-element_type="widget" data-widget_type="text-editor.default">
-									<p>Produto relacionados</p>								</div>
+									<p>Produtos relacionados</p>								</div>
 					</div>
 				</div>
 		<div class="elementor-element elementor-element-7a935a3 elementor-hidden-desktop elementor-hidden-tablet e-flex e-con-boxed e-con e-parent" data-id="7a935a3" data-element_type="container">
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-176d673 elementor-widget elementor-widget-text-editor" data-id="176d673" data-element_type="widget" data-widget_type="text-editor.default">
-									<p>Termos e condições Como cuidamos da sua privacidade Acessibilidade Informações sobre seguros Blog Afiliados Tendências<br><span style="color: #888888;">Primacial Cosm&#233;ticos LTDA 12.345.678/0001-90</span></p>								</div>
+									<p>Termos e condições Como cuidamos da sua privacidade Acessibilidade Informações sobre seguros Blog Afiliados Tendências<br><span style="color: #888888;">Primacial Cosméticos LTDA 12.345.678/0001-90</span></p>								</div>
 					</div>
 				</div>
 				</div>
@@ -1783,7 +1656,7 @@
 <script src="js/webpack.runtime.min.js" id="elementor-webpack-runtime-js"></script>
 <script src="js/frontend-modules.min.js" id="elementor-frontend-modules-js"></script>
 <script id="elementor-frontend-js-before">
-var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Compartilhar no Facebook","shareOnTwitter":"Compartilhar no Twitter","pinIt":"Fixar","download":"Baixar","downloadImage":"Baixar imagem","fullscreen":"Tela cheia","zoom":"Zoom","share":"Compartilhar","playVideo":"Reproduzir v\u00eddeo","previous":"Anterior","next":"Pr\u00f3ximo","close":"Fechar","a11yCarouselPrevSlideMessage":"Slide anterior","a11yCarouselNextSlideMessage":"Pr\u00f3ximo slide","a11yCarouselFirstSlideMessage":"Este \u00e9 o primeiro slide","a11yCarouselLastSlideMessage":"Este \u00e9 o \u00faltimo slide","a11yCarouselPaginationBulletMessage":"Ir para o slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Dispositivos m\u00f3veis no modo retrato","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Dispositivos m\u00f3veis no modo paisagem","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet no modo retrato","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet no modo paisagem","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Notebook","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Tela ampla (widescreen)","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.30.4","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_optimized_markup":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"nested-elements":true,"e_element_cache":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"cloud-library":true,"e_opt_in_v4_page":true,"page-transitions":true,"notes":true,"loop":true,"form-submissions":true,"e_scroll_snap":true},"urls":{"assets":"https:\/\/page.kelvesmoura.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/page.kelvesmoura.com\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/page.kelvesmoura.com\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"930d47d0f8"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"title","hello_footer_logo_type":"logo"},"post":{"id":22,"title":"Body%20Splash%20Masculino%20Vibration%20Primacial%20200ml%20%E2%80%93%20Loja%20Oficial","excerpt":"","featuredImage":false}};
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Compartilhar no Facebook","shareOnTwitter":"Compartilhar no Twitter","pinIt":"Fixar","download":"Baixar","downloadImage":"Baixar imagem","fullscreen":"Tela cheia","zoom":"Zoom","share":"Compartilhar","playVideo":"Reproduzir v\u00eddeo","previous":"Anterior","next":"Pr\u00f3ximo","close":"Fechar","a11yCarouselPrevSlideMessage":"Slide anterior","a11yCarouselNextSlideMessage":"Pr\u00f3ximo slide","a11yCarouselFirstSlideMessage":"Este \u00e9 o primeiro slide","a11yCarouselLastSlideMessage":"Este \u00e9 o \u00faltimo slide","a11yCarouselPaginationBulletMessage":"Ir para o slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Dispositivos m\u00f3veis no modo retrato","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Dispositivos m\u00f3veis no modo paisagem","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet no modo retrato","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet no modo paisagem","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Notebook","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Tela ampla (widescreen)","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.30.4","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_optimized_markup":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"nested-elements":true,"e_element_cache":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"cloud-library":true,"e_opt_in_v4_page":true,"page-transitions":true,"notes":true,"loop":true,"form-submissions":true,"e_scroll_snap":true},"urls":{"assets":"assets\/","ajaxurl":"#","uploadUrl":"images\/"},"nonces":{"floatingButtonsClickTracking":"930d47d0f8"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"title","hello_footer_logo_type":"logo"},"post":{"id":22,"title":"Body%20Splash%20Masculino%20Vibration%20Primacial%20200ml%20%E2%80%93%20Loja%20Oficial","excerpt":"","featuredImage":false}};
 </script>
 <script src="js/frontend.min.js" id="elementor-frontend-js"></script>
 <script src="js/webpack-pro.runtime.min.js" id="elementor-pro-webpack-runtime-js"></script>
@@ -1793,7 +1666,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 </script>
 <script id="elementor-pro-frontend-js-before">
-var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/page.kelvesmoura.com\/wp-admin\/admin-ajax.php","nonce":"288600fe1f","urls":{"assets":"https:\/\/page.kelvesmoura.com\/wp-content\/plugins\/pro-elements\/assets\/","rest":"https:\/\/page.kelvesmoura.com\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"pt_BR","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/page.kelvesmoura.com\/wp-content\/plugins\/pro-elements\/modules\/lottie\/assets\/animations\/default.json"}};
+var ElementorProFrontendConfig = {"ajaxurl":"#","nonce":"288600fe1f","urls":{"assets":"assets\/","rest":"#"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"pt_BR","app_id":""},"lottie":{"defaultAnimationUrl":""}};
 </script>
 <script src="js/frontend.min_1.js" id="elementor-pro-frontend-js"></script>
 <script src="js/preloaded-elements-handlers.min.js" id="pro-preloaded-elements-handlers-js"></script>

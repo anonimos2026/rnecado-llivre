@@ -2,11 +2,18 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="refresh" content="0; url=/vibration">
-  <script>window.location.replace('/vibration');</script>
-  <title>Redirecionando para Vibration...</title>
+  <script>
+    (function() {
+      var search = window.location.search || '';
+      var hash = window.location.hash || '';
+      window.location.replace('/vibration' + search + hash);
+    })();
+  </script>
+  <title>Redirecionando...</title>
 </head>
-<body style="font-family: sans-serif; text-align: center; padding: 50px;">
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; text-align: center; padding: 50px;">
   <p>Redirecionando para <a href="/vibration">/vibration</a>...</p>
 </body>
 </html>

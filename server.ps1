@@ -79,9 +79,10 @@ try {
                 # A página é exibida na URL /vibration
                 $targetFile = Join-Path $mercadoLivreFolder "index.html"
             } elseif ([string]::IsNullOrWhiteSpace($cleanPath) -or $cleanPath -ieq "index.html") {
-                # Redireciona a raiz para /vibration para não dar página fora do ar
+                # Redireciona a raiz para /vibration para não dar página fora do ar, preservando UTMs
                 $response.StatusCode = 302
-                $response.RedirectLocation = "/vibration"
+                $qs = if ($request.Url.Query) { $request.Url.Query } else { "" }
+                $response.RedirectLocation = "/vibration$qs"
                 $response.Close()
                 continue
             } else {
