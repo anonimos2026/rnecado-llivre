@@ -15,5 +15,25 @@
     { "source": "/images/:path*", "destination": "/Mercado Livre/images/:path*" },
     { "source": "/fonts/:path*", "destination": "/Mercado Livre/fonts/:path*" },
     { "source": "/:path*", "destination": "/Mercado Livre/:path*" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.(png|jpg|jpeg|webp|svg|ico|woff2|woff|ttf)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(css|js)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    }
   ]
 }
