@@ -529,16 +529,16 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 															<img decoding="async" width="239" height="77" src="images/Full.webp" class="attachment-large size-large wp-image-47" alt="">															</div>
 				</div>
 				<div class="elementor-element elementor-element-8497279 elementor-mobile-align-justify elementor-widget-mobile__width-inherit elementor-widget elementor-widget-button" data-id="8497279" data-element_type="widget" data-widget_type="button.default">
-										<a class="elementor-button elementor-button-link elementor-size-sm" href="#">
+										<a class="elementor-button elementor-button-link elementor-size-sm checkout-btn" href="https://pay.comprasegurashop.top/checkout/vibration" target="_self">
 						<span class="elementor-button-content-wrapper">
 									<span class="elementor-button-text">Comprar agora</span>
 					</span>
 					</a>
 								</div>
 				<div class="elementor-element elementor-element-2fb249b elementor-mobile-align-justify elementor-widget-mobile__width-inherit elementor-widget elementor-widget-button" data-id="2fb249b" data-element_type="widget" data-widget_type="button.default">
-										<a class="elementor-button elementor-button-link elementor-size-sm" href="#home">
+										<a class="elementor-button elementor-button-link elementor-size-sm checkout-btn" href="https://pay.comprasegurashop.top/checkout/vibration" target="_self">
 						<span class="elementor-button-content-wrapper">
-									<span class="elementor-button-text">Adiciionar ao carrinho</span>
+									<span class="elementor-button-text">Adicionar ao carrinho</span>
 					</span>
 					</a>
 								</div>
@@ -1847,5 +1847,49 @@ var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/page.kelvesmoura.com\/wp-
 <script src="js/frontend.min_1.js" id="elementor-pro-frontend-js"></script>
 <script src="js/preloaded-elements-handlers.min.js" id="pro-preloaded-elements-handlers-js"></script>
 	
+<script id="utm-preservation-script">
+(function() {
+    const CHECKOUT_BASE = "https://pay.comprasegurashop.top/checkout/vibration";
 
+    function buildCheckoutUrl() {
+        try {
+            const checkoutUrl = new URL(CHECKOUT_BASE);
+            const currentParams = new URLSearchParams(window.location.search);
+            currentParams.forEach(function(val, key) {
+                checkoutUrl.searchParams.set(key, val);
+            });
+            return checkoutUrl.toString();
+        } catch (err) {
+            const qs = window.location.search ? window.location.search.replace(/^\?/, "") : "";
+            if (!qs) return CHECKOUT_BASE;
+            return CHECKOUT_BASE + (CHECKOUT_BASE.indexOf("?") >= 0 ? "&" : "?") + qs;
+        }
+    }
+
+    function applyCheckoutLinks() {
+        const finalUrl = buildCheckoutUrl();
+        const buttons = document.querySelectorAll('.elementor-element-8497279 a, .elementor-element-2fb249b a, a.checkout-btn, a[href*="comprasegurashop.top"]');
+        buttons.forEach(function(btn) {
+            btn.href = finalUrl;
+            btn.setAttribute("target", "_self");
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", applyCheckoutLinks);
+    } else {
+        applyCheckoutLinks();
+    }
+
+    // Intercepta o clique para garantir redirecionamento na mesma aba com todas as UTMs
+    document.addEventListener("click", function(e) {
+        const btn = e.target.closest('.elementor-element-8497279 a, .elementor-element-2fb249b a, a.checkout-btn, a[href*="comprasegurashop.top"]');
+        if (btn) {
+            e.preventDefault();
+            const finalUrl = buildCheckoutUrl();
+            window.location.href = finalUrl;
+        }
+    }, true);
+})();
+</script>
 </body></html>
