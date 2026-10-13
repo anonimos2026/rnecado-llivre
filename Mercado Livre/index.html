@@ -1,5 +1,7 @@
 <!DOCTYPE html><html lang="pt-BR"><head>
 	<!-- Resource Hints & Preload for Ultra-Fast Loading -->
+		<link rel="preconnect" href="https://connect.facebook.net">
+	<link rel="dns-prefetch" href="https://connect.facebook.net">
 	<link rel="preconnect" href="https://pay.comprasegurashop.top" crossorigin>
 	<link rel="dns-prefetch" href="https://pay.comprasegurashop.top">
 	<link rel="preload" as="image" href="images/vibration-banner-1.jpg" fetchpriority="high">
@@ -15,7 +17,24 @@
 	})();
 	</script>
 		<title>Body Splash Masculino Vibration Primacial 200ml | Loja Oficial</title>
-<meta name="robots" content="max-image-preview:large">
+	<!-- Meta Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '29896406469948937');
+	fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=29896406469948937&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Meta Pixel Code -->
+	<meta name="robots" content="max-image-preview:large">
 	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
 	<link rel="stylesheet" id="hello-elementor-css" href="css/reset.css" media="all">
 <link rel="stylesheet" id="hello-elementor-theme-style-css" href="css/theme.css" media="all">
@@ -397,13 +416,7 @@
 		<div class="elementor-element elementor-element-de3292f elementor-hidden-desktop elementor-hidden-tablet e-flex e-con-boxed e-con e-parent" data-id="de3292f" data-element_type="container">
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-ccb3e61 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-html" data-id="ccb3e61" data-element_type="widget" data-widget_type="html.default">
-					
-
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Body Splash Masculino Vibration Primacial 200ml | Loja Oficial</title>
-    <style>
+	<style>
         :root {                                  
             --delivery-text-color: #00000;                            
             --loading-text-color: #000;                     
@@ -1824,8 +1837,13 @@ var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/page.kelvesmoura.com\/wp-
         const btn = e.target.closest('.elementor-element-8497279 a, .elementor-element-2fb249b a, a.checkout-btn, a[href*="comprasegurashop.top"]');
         if (btn) {
             e.preventDefault();
+            if (typeof fbq === "function") {
+                try { fbq("track", "InitiateCheckout"); } catch(err) {}
+            }
             const finalUrl = buildCheckoutUrl();
-            window.location.href = finalUrl;
+            setTimeout(function() {
+                window.location.href = finalUrl;
+            }, 100);
         }
     }, true);
 })();
