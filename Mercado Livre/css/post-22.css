@@ -8,14 +8,15 @@
 	font-family: 'proximaNovaRegular';
 	font-style: normal;
 	font-weight: normal;
-	font-display: auto;
-	src: url('../fonts/Fontspring-DEMO-proximanova-regular.ttf') format('truetype');
+	font-display: swap;
+	src: local('Proxima Nova Regular'), local('Proxima Nova'), local('-apple-system'), local('BlinkMacSystemFont'), local('Segoe UI'), local('Roboto'), url('../fonts/roboto-kfo5cnqeu92fr1mu53zec9_vu3r1gihoszmkbnka.woff2') format('woff2');
 }
 @font-face {
 	font-family: 'proximaNovaRegular';
 	font-style: normal;
 	font-weight: 700;
-	font-display: auto;
-	src: url('../fonts/Fontspring-DEMO-proximanova-extrabold.ttf') format('truetype');
+	font-display: swap;
+	src: local('Proxima Nova Bold'), local('Proxima Nova'), local('-apple-system'), local('BlinkMacSystemFont'), local('Segoe UI Bold'), local('Segoe UI'), local('Roboto Bold'), url('../fonts/roboto-kfo5cnqeu92fr1mu53zec9_vu3r1gihoszmkbnka.woff2') format('woff2');
 }
+
 /* End Custom Fonts CSS */

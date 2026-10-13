@@ -1,0 +1,19 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/", "destination": "/vibration", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/vibration", "destination": "/Mercado Livre/index.html" },
+    { "source": "/vibration/", "destination": "/Mercado Livre/index.html" },
+    { "source": "/vibration/css/:path*", "destination": "/Mercado Livre/css/:path*" },
+    { "source": "/vibration/js/:path*", "destination": "/Mercado Livre/js/:path*" },
+    { "source": "/vibration/images/:path*", "destination": "/Mercado Livre/images/:path*" },
+    { "source": "/vibration/fonts/:path*", "destination": "/Mercado Livre/fonts/:path*" },
+    { "source": "/css/:path*", "destination": "/Mercado Livre/css/:path*" },
+    { "source": "/js/:path*", "destination": "/Mercado Livre/js/:path*" },
+    { "source": "/images/:path*", "destination": "/Mercado Livre/images/:path*" },
+    { "source": "/fonts/:path*", "destination": "/Mercado Livre/fonts/:path*" },
+    { "source": "/:path*", "destination": "/Mercado Livre/:path*" }
+  ]
+}
