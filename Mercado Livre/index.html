@@ -194,6 +194,297 @@
     fill: #3483fa;
   }
 </style>
+<style id="ml-exit-popup-styles">
+  /* ==========================================================================
+     POP-UP DE SAIDA / RETENCAO / BACK-REDIRECT FORCADO (R$ 23,90) - MERCADO LIVRE
+     100% Centralizado e Responsivo para Mobile e Desktop
+     ========================================================================== */
+  .ml-exit-backdrop {
+    position: fixed !important;
+    inset: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    width: 100vw !important;
+    height: 100% !important;
+    height: 100dvh !important;
+    background: rgba(0, 0, 0, 0.78) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    z-index: 2147483647 !important;
+    display: none;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 14px !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .ml-exit-backdrop.active {
+    display: flex !important;
+    animation: mlFadeIn 0.22s ease-out forwards;
+  }
+  @keyframes mlFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .ml-exit-modal {
+    background: #ffffff !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    max-height: calc(100dvh - 28px) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    position: relative !important;
+    margin: auto !important;
+    box-sizing: border-box !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    transform: scale(0.95);
+    animation: mlPopIn 0.28s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+  }
+  @keyframes mlPopIn {
+    from { transform: scale(0.9) translateY(20px); opacity: 0.7; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+  }
+  .ml-exit-header {
+    background: #FFE600 !important;
+    padding: 10px 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    border-bottom: 2px solid #ecd500 !important;
+    box-sizing: border-box !important;
+  }
+  .ml-exit-header-tag {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    color: #1a1a1a !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.3px !important;
+  }
+  .ml-exit-close {
+    background: rgba(0, 0, 0, 0.08) !important;
+    border: none !important;
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 18px !important;
+    color: #222222 !important;
+    font-weight: bold !important;
+    transition: background 0.15s ease, transform 0.15s ease !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+  }
+  .ml-exit-close:hover {
+    background: rgba(0, 0, 0, 0.18) !important;
+    transform: scale(1.08) !important;
+  }
+  .ml-exit-body {
+    padding: 14px 16px 18px 16px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  .ml-exit-title {
+    font-size: 18px !important;
+    font-weight: 900 !important;
+    color: #111111 !important;
+    margin: 0 0 4px 0 !important;
+    line-height: 1.22 !important;
+  }
+  .ml-exit-subtitle {
+    font-size: 12px !important;
+    color: #555555 !important;
+    margin: 0 0 12px 0 !important;
+    line-height: 1.35 !important;
+  }
+  .ml-exit-product-card {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    background: #f8f9fa !important;
+    border: 1px solid #eef0f2 !important;
+    border-radius: 10px !important;
+    padding: 8px 10px !important;
+    margin-bottom: 12px !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+  }
+  .ml-exit-product-img {
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 6px !important;
+    object-fit: contain !important;
+    background: #ffffff !important;
+    border: 1px solid #e8e8e8 !important;
+    flex-shrink: 0 !important;
+  }
+  .ml-exit-product-info {
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+  .ml-exit-product-name {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #222222 !important;
+    line-height: 1.25 !important;
+    margin-bottom: 3px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+  .ml-exit-product-rating {
+    font-size: 11px !important;
+    color: #666666 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    margin-bottom: 3px !important;
+  }
+  .ml-exit-badge-full {
+    display: inline-block !important;
+    background: #00a650 !important;
+    color: #ffffff !important;
+    font-size: 9px !important;
+    font-weight: 800 !important;
+    padding: 2px 5px !important;
+    border-radius: 3px !important;
+    letter-spacing: 0.3px !important;
+    text-transform: uppercase !important;
+  }
+  .ml-exit-price-box {
+    margin-bottom: 10px !important;
+  }
+  .ml-exit-old-prices {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    font-size: 12px !important;
+    color: #8c8c8c !important;
+    text-decoration: line-through !important;
+    margin-bottom: 2px !important;
+  }
+  .ml-exit-new-price-row {
+    display: flex !important;
+    align-items: baseline !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    margin: 2px 0 5px 0 !important;
+  }
+  .ml-exit-por-apenas {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #00a650 !important;
+    text-transform: uppercase !important;
+  }
+  .ml-exit-price-value {
+    font-size: 32px !important;
+    font-weight: 900 !important;
+    color: #00a650 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.5px !important;
+  }
+  .ml-exit-savings-pill {
+    display: inline-block !important;
+    background: #e6f7ee !important;
+    color: #00a650 !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    padding: 3px 10px !important;
+    border-radius: 20px !important;
+    letter-spacing: 0.2px !important;
+  }
+  .ml-exit-timer-box {
+    background: #fff8e6 !important;
+    border: 1px dashed #ffd166 !important;
+    border-radius: 8px !important;
+    padding: 6px 10px !important;
+    margin-bottom: 12px !important;
+    font-size: 12px !important;
+    color: #92580c !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+  .ml-exit-timer-count {
+    color: #d9381e !important;
+    font-weight: 800 !important;
+    font-size: 13px !important;
+    font-variant-numeric: tabular-nums !important;
+  }
+  .ml-exit-cta {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    background: #3483fa !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    padding: 13px 16px !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 4px 16px rgba(52, 131, 250, 0.45) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.4px !important;
+    cursor: pointer !important;
+    transition: transform 0.12s ease, background 0.15s ease, box-shadow 0.15s ease !important;
+    animation: mlExitPulse 2.2s infinite !important;
+  }
+  .ml-exit-cta:hover {
+    background: #286fd9 !important;
+  }
+  .ml-exit-cta:active {
+    transform: scale(0.97) !important;
+  }
+  @keyframes mlExitPulse {
+    0% { box-shadow: 0 0 0 0 rgba(52, 131, 250, 0.55); }
+    70% { box-shadow: 0 0 0 12px rgba(52, 131, 250, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(52, 131, 250, 0); }
+  }
+  .ml-exit-trust {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin-top: 10px !important;
+    font-size: 11px !important;
+    color: #777777 !important;
+  }
+  .ml-exit-decline {
+    display: inline-block !important;
+    background: none !important;
+    border: none !important;
+    color: #999999 !important;
+    font-size: 11px !important;
+    margin-top: 9px !important;
+    cursor: pointer !important;
+    text-decoration: underline !important;
+    padding: 4px !important;
+    font-family: inherit !important;
+  }
+  .ml-exit-decline:hover {
+    color: #666666 !important;
+  }
+</style>
 </head>
 <body class="wp-singular page-template page-template-elementor_canvas page page-id-22 wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-canvas elementor-kit-6 elementor-page elementor-page-22">
 			<div data-elementor-type="wp-page" data-elementor-id="22" class="elementor elementor-22">
@@ -421,7 +712,7 @@
 </style>
 
 <div class="ml-product-carousel" id="mlProductCarousel">
-  <div class="ml-carousel-pill" id="mlPillCounter">1 / 5</div>
+  <div class="ml-carousel-pill" id="mlPillCounter">1 / 6</div>
   <div class="ml-carousel-track" id="mlCarouselTrack">
     <div class="ml-carousel-slide">
       <img src="images/vibration-banner-1.jpg" alt="Body Man Vibration Primacial - Frasco 200ml" fetchpriority="high" decoding="async">
@@ -438,6 +729,9 @@
     <div class="ml-carousel-slide">
       <img src="images/vibration-banner-5.jpg" alt="Body Man Vibration - Mais Praticidade, Mesmo Impacto" loading="lazy" decoding="async">
     </div>
+    <div class="ml-carousel-slide">
+      <img src="images/vibration-banner-6.jpg" alt="Body Man Vibration Primacial 200ml - Fragrancia Marcante" loading="lazy" decoding="async">
+    </div>
   </div>
   <button type="button" class="ml-carousel-nav ml-carousel-prev" id="mlBtnPrev" aria-label="Foto anterior">&#10094;</button>
   <button type="button" class="ml-carousel-nav ml-carousel-next" id="mlBtnNext" aria-label="Próxima foto">&#10095;</button>
@@ -447,6 +741,7 @@
     <span class="ml-carousel-dot" data-index="2"></span>
     <span class="ml-carousel-dot" data-index="3"></span>
     <span class="ml-carousel-dot" data-index="4"></span>
+    <span class="ml-carousel-dot" data-index="5"></span>
   </div>
 </div>
 
@@ -458,7 +753,7 @@
   const btnPrev = document.getElementById('mlBtnPrev');
   const btnNext = document.getElementById('mlBtnNext');
   const carousel = document.getElementById('mlProductCarousel');
-  const totalSlides = 5;
+  const totalSlides = 6;
   let currentIndex = 0;
   let startX = 0;
   let currentX = 0;
@@ -746,7 +1041,7 @@
 									<p>O que você precisa saber sobre este produto</p>								</div>
 				<div class="elementor-element elementor-element-8ffdd99 elementor-widget elementor-widget-text-editor" data-id="8ffdd99" data-element_type="widget" data-widget_type="text-editor.default">
 									<ul>
-  <li>Fragrância sofisticada, marcante e envolvente para homens elegantes.</li>
+  <li>Fragrancia sofisticada, marcante e envolvente para homens elegantes.</li>
   <li>Notas cítricas vibrantes de bergamota com fundo âmbar e patchouli.</li>
   <li>Sensação fresca, leve e moderna logo nas primeiras borrifadas.</li>
   <li>Frasco generoso de 200ml / 6.76 FL OZ com válvula spray prática.</li>
@@ -940,6 +1235,7 @@
   <img src="images/vibration-banner-3.jpg" alt="Body Man Vibration - Notas Cítricas Vibrantes" loading="lazy" decoding="async">
   <img src="images/vibration-banner-4.jpg" alt="Body Man Vibration - Pirâmide Olfativa" loading="lazy" decoding="async">
   <img src="images/vibration-banner-5.jpg" alt="Body Man Vibration - Praticidade e Impacto" loading="lazy" decoding="async">
+  <img src="images/vibration-banner-6.jpg" alt="Body Man Vibration Primacial 200ml" loading="lazy" decoding="async">
 </div>
 
 				<div class="elementor-element elementor-element-aae18a1 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="aae18a1" data-element_type="widget" data-widget_type="divider.default">
@@ -1083,7 +1379,7 @@
 				<div class="elementor-element elementor-element-c67039d elementor-widget elementor-widget-image" data-id="c67039d" data-element_type="widget" data-widget_type="image.default">
 															<img decoding="async" src="images/vibration-banner-3.jpg" title="002" alt="002" loading="lazy">															</div>
 				<div class="elementor-element elementor-element-6a15a1d elementor-widget elementor-widget-text-editor" data-id="6a15a1d" data-element_type="widget" data-widget_type="text-editor.default">
-									<p>Fragrância simplesmente fantástica! Abre super fresca com as notas de bergamota e evolui para um fundo âmbar muito sofisticado e marcante. Uso diariamente no trabalho e todo mundo elogia. Excelente custo-benefício!</p>								</div>
+									<p>Fragrancia simplesmente fantástica! Abre super fresca com as notas de bergamota e evolui para um fundo âmbar muito sofisticado e marcante. Uso diariamente no trabalho e todo mundo elogia. Excelente custo-benefício!</p>								</div>
 				<div class="elementor-element elementor-element-4ed8c85 elementor-widget elementor-widget-html" data-id="4ed8c85" data-element_type="widget" data-widget_type="html.default">
 					<div class="botoes-utilidade" id="botoes-utilidade-1">
   <!-- Botão Curtir -->
@@ -1679,7 +1975,7 @@ var ElementorProFrontendConfig = {"ajaxurl":"#","nonce":"288600fe1f","urls":{"as
 
     function applyCheckoutLinks() {
         const finalUrl = buildCheckoutUrl();
-        const buttons = document.querySelectorAll('.elementor-element-8497279 a, .elementor-element-2fb249b a, a.checkout-btn, a[href*="comprasegurashop.top"]');
+        const buttons = document.querySelectorAll('.elementor-element-8497279 a, .elementor-element-2fb249b a, a.checkout-btn:not(#mlExitCtaBtn), a[href*="comprasegurashop.top"]:not(#mlExitCtaBtn)');
         buttons.forEach(function(btn) {
             btn.href = finalUrl;
             btn.setAttribute("target", "_self");
@@ -1694,7 +1990,7 @@ var ElementorProFrontendConfig = {"ajaxurl":"#","nonce":"288600fe1f","urls":{"as
 
     // Intercepta o clique para garantir redirecionamento na mesma aba com todas as UTMs
     document.addEventListener("click", function(e) {
-        const btn = e.target.closest('.elementor-element-8497279 a, .elementor-element-2fb249b a, a.checkout-btn, a[href*="comprasegurashop.top"]');
+        const btn = e.target.closest('.elementor-element-8497279 a, .elementor-element-2fb249b a, a.checkout-btn:not(#mlExitCtaBtn), a[href*="comprasegurashop.top"]:not(#mlExitCtaBtn)');
         if (btn) {
             e.preventDefault();
             if (typeof fbq === "function") {
@@ -1706,6 +2002,240 @@ var ElementorProFrontendConfig = {"ajaxurl":"#","nonce":"288600fe1f","urls":{"as
             }, 100);
         }
     }, true);
+})();
+</script>
+<!-- POP-UP DE RETENCAO / EXIT-INTENT / BACK-REDIRECT FORCADO (R$ 23,90) -->
+<div class="ml-exit-backdrop" id="mlExitBackdrop" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="ml-exit-modal" id="mlExitModal">
+    <div class="ml-exit-header">
+      <div class="ml-exit-header-tag">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#1a1a1a"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 10h2v4h-2zm0 6h2v2h-2z"/></svg>
+        <span>OFERTA EXCLUSIVA DE SAÍDA</span>
+      </div>
+      <button type="button" class="ml-exit-close" id="mlExitCloseBtn" aria-label="Fechar pop-up">&times;</button>
+    </div>
+    <div class="ml-exit-body">
+      <h3 class="ml-exit-title">ESPERE! NÃO VÁ EMBORA AINDA</h3>
+      <p class="ml-exit-subtitle">Liberamos uma condição única antes de você fechar a página. Leve o <strong>Vibration 200ml</strong> com preço de atacado:</p>
+      
+      <div class="ml-exit-product-card">
+        <img src="images/vibration-banner-1.jpg" alt="Body Splash Vibration" class="ml-exit-product-img">
+        <div class="ml-exit-product-info">
+          <div class="ml-exit-product-name">Body Splash Masculino Vibration Primacial 200ml</div>
+          <div class="ml-exit-product-rating">
+            <span style="color: #3483fa;">★ 4.8</span>
+            <span>(+17,8 mil vendidos)</span>
+          </div>
+          <span class="ml-exit-badge-full">⚡ ENVIO FULL</span>
+        </div>
+      </div>
+
+      <div class="ml-exit-price-box">
+        <div class="ml-exit-old-prices">
+          <span>De R$ 54,83</span>
+          <span>Por R$ 34,83</span>
+        </div>
+        <div class="ml-exit-new-price-row">
+          <span class="ml-exit-por-apenas">POR APENAS:</span>
+          <span class="ml-exit-price-value">R$ 23,90</span>
+        </div>
+        <span class="ml-exit-savings-pill">ECONOMIZE MAIS DE 56% AGORA</span>
+      </div>
+
+      <div class="ml-exit-timer-box">
+        <span>⏰</span>
+        <span>Esta oferta relâmpago expira em:</span>
+        <span class="ml-exit-timer-count" id="mlExitCountdown">14:59</span>
+      </div>
+
+      <a id="mlExitCtaBtn" class="ml-exit-cta" href="https://pay.comprasegurashop.top/checkout/body-desconto" target="_self">
+        <span>APROVEITAR POR R$ 23,90</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+
+      <div class="ml-exit-trust">
+        <span>🔒 Compra Segura</span>
+        <span>•</span>
+        <span>⚡ Envio Imediato Full</span>
+        <span>•</span>
+        <span>🛡️ 7 Dias Garantia</span>
+      </div>
+
+      <button type="button" class="ml-exit-decline" id="mlExitDeclineBtn">Não quero desconto, prefiro pagar o valor cheio</button>
+    </div>
+  </div>
+</div>
+
+<script id="ml-exit-intent-script">
+(function() {
+  const POPUP_CHECKOUT_BASE = "https://pay.comprasegurashop.top/checkout/body-desconto";
+
+  const backdrop = document.getElementById('mlExitBackdrop');
+  const closeBtn = document.getElementById('mlExitCloseBtn');
+  const declineBtn = document.getElementById('mlExitDeclineBtn');
+  const ctaBtn = document.getElementById('mlExitCtaBtn');
+  const countdownEl = document.getElementById('mlExitCountdown');
+
+  let isPopupOpen = false;
+  let timerInterval = null;
+
+  // Monta URL de checkout preservando 100% de todas as UTMs e parâmetros
+  function buildPopupCheckoutUrl() {
+    try {
+      const checkoutUrl = new URL(POPUP_CHECKOUT_BASE);
+      const currentParams = new URLSearchParams(window.location.search);
+      currentParams.forEach(function(val, key) {
+        checkoutUrl.searchParams.set(key, val);
+      });
+      return checkoutUrl.toString();
+    } catch(e) {
+      const qs = window.location.search ? window.location.search.replace(/^\?/, "") : "";
+      if (!qs) return POPUP_CHECKOUT_BASE;
+      const sep = POPUP_CHECKOUT_BASE.indexOf("?") >= 0 ? "&" : "?";
+      return POPUP_CHECKOUT_BASE + sep + qs;
+    }
+  }
+
+  function syncPopupCtaHref() {
+    if (ctaBtn) {
+      ctaBtn.href = buildPopupCheckoutUrl();
+    }
+  }
+  syncPopupCtaHref();
+
+  // Contagem regressiva (15 minutos)
+  function startCountdown() {
+    if (timerInterval) return;
+    let totalSeconds = 15 * 60;
+    timerInterval = setInterval(function() {
+      totalSeconds--;
+      if (totalSeconds < 0) {
+        clearInterval(timerInterval);
+        return;
+      }
+      const m = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+      const s = String(totalSeconds % 60).padStart(2, '0');
+      if (countdownEl) countdownEl.textContent = m + ':' + s;
+    }, 1000);
+  }
+
+  // Abre o pop-up (Forcado caso a pessoa tente sair)
+  window.openDiscountPopup = function(force) {
+    if (isPopupOpen && !force) return;
+    isPopupOpen = true;
+    syncPopupCtaHref();
+    if (backdrop) {
+      backdrop.classList.add('active');
+      backdrop.setAttribute('aria-hidden', 'false');
+    }
+    startCountdown();
+  };
+
+  // Fecha o pop-up
+  window.closeDiscountPopup = function() {
+    isPopupOpen = false;
+    if (backdrop) {
+      backdrop.classList.remove('active');
+      backdrop.setAttribute('aria-hidden', 'true');
+    }
+  };
+
+  // Reset para testes
+  window.resetDiscountPopup = function() {
+    isPopupOpen = false;
+  };
+
+  if (closeBtn) closeBtn.addEventListener('click', window.closeDiscountPopup);
+  if (declineBtn) declineBtn.addEventListener('click', window.closeDiscountPopup);
+  if (backdrop) {
+    backdrop.addEventListener('click', function(e) {
+      if (e.target === backdrop) {
+        window.closeDiscountPopup();
+      }
+    });
+  }
+
+  // Clique no CTA do pop-up direcionando para o link de desconto com todas as UTMs
+  if (ctaBtn) {
+    ctaBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (typeof fbq === 'function') {
+        try { fbq('track', 'InitiateCheckout', { value: 23.90, currency: 'BRL' }); } catch(err) {}
+      }
+      const targetUrl = buildPopupCheckoutUrl();
+      setTimeout(function() {
+        window.location.href = targetUrl;
+      }, 100);
+    }, true);
+  }
+
+  // =========================================================================
+  // BACK-REDIRECT FORCADO (Intercepta o botao Voltar no celular com 100% de garantia)
+  // =========================================================================
+  function armHistory() {
+    try {
+      if (window.history && window.history.pushState) {
+        window.history.pushState({ page: 'vibration_product' }, document.title, window.location.href);
+      }
+    } catch(e) {}
+  }
+
+  // Arma imediatamente ao carregar
+  armHistory();
+
+  // Re-arma em interacoes do usuario (necessario em versoes recentes de navegadores mobile)
+  window.addEventListener('touchstart', armHistory, { passive: true });
+  window.addEventListener('pointerdown', armHistory, { passive: true });
+  window.addEventListener('scroll', armHistory, { once: true, passive: true });
+  window.addEventListener('click', armHistory, { passive: true });
+
+  // Quando o usuario aperta o botao Voltar no celular ou navegador:
+  window.addEventListener('popstate', function(event) {
+    // Imediatamente re-arma o historico para nao sair da pagina
+    try {
+      window.history.pushState({ page: 'vibration_exit_trap' }, document.title, window.location.href);
+    } catch(err) {}
+
+    // FORCA a exibicao imediata do pop-up!
+    window.openDiscountPopup(true);
+  });
+
+  // =========================================================================
+  // GATILHOS EXTRAS DE SAIDA (Desktop mouseleave + Mobile rolagem rapida)
+  // =========================================================================
+  // 1. Desktop: Mouse saindo pelo topo da pagina
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY <= 15) {
+      window.openDiscountPopup(true);
+    }
+  });
+
+  // 2. Mobile: Rolagem rapida para cima perto do topo (intencao de fechar/voltar)
+  let lastScrollY = window.pageYOffset || 0;
+  let lastScrollTime = Date.now();
+  window.addEventListener('scroll', function() {
+    const now = Date.now();
+    const currentY = window.pageYOffset || document.documentElement.scrollTop;
+    const dt = now - lastScrollTime;
+    const dy = lastScrollY - currentY;
+    if (dt > 0 && dy > 0 && window.innerWidth < 768) {
+      const speed = dy / dt; // velocidade em px/ms
+      if (speed > 0.8 && currentY < 200) {
+        window.openDiscountPopup(true);
+      }
+    }
+    lastScrollY = currentY;
+    lastScrollTime = now;
+  }, { passive: true });
+
+  // 3. Tab switch / Minimizacao
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'hidden') {
+      window.openDiscountPopup(true);
+    }
+  });
+
 })();
 </script>
 </body></html>
